@@ -5,14 +5,16 @@ function dataparms = datasets()
     dataparms(1).backConc = 0; %Background concentration for fitting hill function
     dataparms(1).xlabels = '[MeAsp]'; %xlabel on plots
     dataparms(1).Lplot = 10.^[-3:0.01:2]; %Range of plots
-    dataparms(1).Files = ["./Data/220106_FOV1.mat", "./Data/230417_FOV1.mat"];
+%     dataparms(1).Files = ["./Data/230417_FOV1.mat"];
+    dataparms(1).Files = ["./Data/220106_FOV1.mat", "./Data/230417_FOV1.mat" ];
+%     dataparms(1).Files = ["./Data/220106_FOV1.mat", "./Data/230417_FOV1.mat", "./Data/210802_FOV1.mat", "./Data/210805_FOV1.mat"];
     dataparms(1).OutFolder = 'MeAspDR_OneConcentrationSets/'; %Where to output data to   
     dataparms(1).concLevels = [0.2, 0.5, 1, 2, 4;...
                                 0.2, 0.5, 1, 2, 4; ...23
                                 0.2, 0.5, 1, 2, 4; ...
                                 0.2, 0.5, 1, 2, 4];
-    dataparms(1).Hillp0 = [log(1.2), log(2), 1]; %Log of estimated parameters to fit hill function [log(n), log(K)]
-    dataparms(1).Normp0 = [log(1.2), 1, 1]; %[log(mean), sigma]
+    dataparms(1).Hillp0 = [log(1.2), log(1.3), 1]; %Log of estimated parameters to fit hill function [log(n), log(K)]
+    dataparms(1).Normp0 = [log(1.3), 1, 1]; %[log(mean), sigma]
     
     %% 1uM Ser Background, MeAsp Dose Response
     dataparms(2).Removal = 0;
@@ -20,10 +22,11 @@ function dataparms = datasets()
     dataparms(2).xlabels = '[MeAsp]'; %xlabel on plots
     dataparms(2).Lplot = 10.^[-3:0.01:2]; %Range of plots
     dataparms(2).Files = ["./Data/210810_FOV1.mat", "./Data/210811_FOV1.mat"];
+%     dataparms(2).Files = ["./Data/210811_FOV1.mat"];
     dataparms(2).OutFolder = '1SerBackMeAspDR/'; %Where to output data to   
     dataparms(2).concLevels = [0.2, 0.5, 1, 2, 4; 0.2, 0.5, 1, 2, 4];
     dataparms(2).Hillp0 = [log(1.2), log(3), 1]; %Log of estimated parameters to fit hill function
-    dataparms(2).Normp0 = [1, 5, 1];
+    dataparms(2).Normp0 = [log(1.2), 0.6, 1];
     
     %% 100uM NaGlu Background, MeAsp Dose Response
     dataparms(3).Removal = 0;
@@ -31,6 +34,7 @@ function dataparms = datasets()
     dataparms(3).xlabels = '[MeAsp]'; %xlabel on plots
     dataparms(3).Lplot = 10.^[-3:0.01:2]; %Range of plots
     dataparms(3).Files = ["./Data/210812_FOV1.mat", "./Data/210813_FOV1.mat", "./Data/230705_FOV1.mat"];
+%     dataparms(3).Files = ["./Data/230705_FOV1.mat"];
     dataparms(3).OutFolder = '100GluBackMeAspDR/'; %Where to output data to   
     dataparms(3).concLevels = [0.2, 0.5, 1, 2, 4; 0.2, 0.5, 1, 2, 4; 0.2, 0.5, 1, 2, 4];
     dataparms(3).Hillp0 = [log(1.2), log(3), 1]; %Log of estimated parameters to fit hill function
@@ -42,6 +46,7 @@ function dataparms = datasets()
     dataparms(4).xlabels = '[MeAsp]'; %xlabel on plots
     dataparms(4).Lplot = 10.^[1:0.01:3]; %Range of plots
     dataparms(4).Files = ["./Data/210816_FOV1.mat", "./Data/230717_FOV1.mat", "./Data/230718_FOV1.mat"];
+%     dataparms(4).Files = ["./Data/230717_FOV1.mat", "./Data/230718_FOV1.mat"];
     dataparms(4).OutFolder = '100MeAspBackMeAspDR/'; %Where to output data to   
     dataparms(4).concLevels = [102, 105, 110, 120, 140; 102, 105, 110, 120, 140; 102, 105, 110, 120, 140];
     dataparms(4).Hillp0 = [log(2), log(10^2), 1]; %Log of estimated parameters to fit hill function
@@ -51,7 +56,7 @@ function dataparms = datasets()
     dataparms(5).Removal = 0;
     dataparms(5).backConc = 0; %Background concentration for fitting hill function
     dataparms(5).xlabels = '[MeAsp]'; %xlabel on plots
-    dataparms(5).Lplot = 10.^[-2:0.01:3]; %Range of plots
+    dataparms(5).Lplot = 10.^(-2:0.01:3); %Range of plots
     dataparms(5).Files = ["./Data/210818_FOV1.mat", "./Data/210908_FOV1.mat"]; %Where to load data from
     dataparms(5).OutFolder = '10LAspBackMeAspDose/'; %Where to output data to
     dataparms(5).concLevels = [5, 10, 20, 40, 80; 5, 10, 20, 40, 80];
@@ -70,7 +75,7 @@ function dataparms = datasets()
     dataparms(6).OutFolder = '0BackSerDose/'; %Where to output data to
     dataparms(6).concLevels = [.005, 0.01, 0.02, 0.05, 0.1; .005, 0.01, 0.02, 0.05, 0.1; .005, 0.01, 0.02, 0.05, 0.1];
     dataparms(6).Hillp0 = [log(.05), log(3), 1]; %Log of estimated parameters to fit hill function
-    dataparms(6).Normp0 = [.05, 3, 1];
+    dataparms(6).Normp0 = [log(0.03), 1, 1];
 
     %% 1uM Ser Background, Ser Dose Response
     dataparms(7).Removal = 0;
@@ -80,8 +85,8 @@ function dataparms = datasets()
     dataparms(7).Files = ["./Data/210914_FOV1.mat", "./Data/210916_FOV1.mat"]; %Where to load data from
     dataparms(7).OutFolder = '1SerBackSerDose/'; %Where to output data to
     dataparms(7).concLevels = [1.02, 1.05, 1.1, 1.2, 1.4; 1.02, 1.05, 1.1, 1.2, 1.4];
-    dataparms(7).Hillp0 = [log(1.07), log(3), 1]; %Log of estimated parameters to fit hill function
-    dataparms(7).Normp0 = [1.07, 3, 1];
+    dataparms(7).Hillp0 = [log(1.07), log(1.12), 1]; %Log of estimated parameters to fit hill function
+    dataparms(7).Normp0 = [1.07, 1, 1];
     
     %% 100uM MeAsp Background, Ser Dose Response
     dataparms(8).Removal = 0;
@@ -94,8 +99,8 @@ function dataparms = datasets()
     dataparms(8).Files = ["./Data/210921_FOV1.mat"]; %Where to load data from
     dataparms(8).OutFolder = '100MeAspBackSerDose/'; %Where to output data to
     dataparms(8).concLevels = [.005, 0.01, 0.02, 0.05, 0.1];
-    dataparms(8).Hillp0 = [log(.05), log(3), 1]; %Log of estimated parameters to fit hill function
-    dataparms(8).Normp0 = [.05, 3, 1];
+    dataparms(8).Hillp0 = [log(1.2), log(.1), 1]; %Log of estimated parameters to fit hill function
+    dataparms(8).Normp0 = [log(0.1), 1, 1];
     
     %% 0 background, Glu Dose Response
     dataparms(9).Removal = 0;
@@ -130,7 +135,7 @@ function dataparms = datasets()
     dataparms(11).concLevels = [0.5, 1, 2, 4, 8; 0.5, 1, 2, 4, 8];
 %     dataparms(11).concLevels = [0.5, 1, 2, 4, 8];
     dataparms(11).Hillp0 = [log(1.2), log(3), 1]; %Log of estimated parameters to fit hill function
-    dataparms(11).Normp0 = [1, 5];
+    dataparms(11).Normp0 = [log(1.1), 1];
     
     %% 0 Background, L-Asp Dose Response
     dataparms(12).Removal = 0;
@@ -141,7 +146,7 @@ function dataparms = datasets()
     dataparms(12).OutFolder = '0BackLAspDose/'; %Where to output data to
     dataparms(12).concLevels = [0.02, 0.05, 0.1, 0.2, 0.4; 0.02, 0.05, 0.1, 0.2, 0.4];
     dataparms(12).Hillp0 = [log(0.04), log(3), 1]; %Log of estimated parameters to fit hill function
-    dataparms(12).Normp0 = [log(0.04), 5, 1];
+    dataparms(12).Normp0 = [log(0.02), 1, 1];
     
     %% 100 uM MeAsp background, L-Asp Dose Response
     dataparms(13).Removal = 0;
@@ -152,7 +157,7 @@ function dataparms = datasets()
     dataparms(13).OutFolder = '100MeAspBackLAspDose/'; %Where to output data to
     dataparms(13).concLevels = [0.05, 0.1, 0.2, 0.4, 0.8; 0.05, 0.1, 0.2, 0.4, 0.8];
     dataparms(13).Hillp0 = [log(2), log(.01), 1]; %Log of estimated parameters to fit hill function
-    dataparms(13).Normp0 = [log(.01), 5, 1];
+    dataparms(13).Normp0 = [log(.15), 2, 1];
     
     %% 100 uM MeAsp background, Glu Dose Response
     dataparms(14).Removal = 0;
@@ -188,7 +193,7 @@ function dataparms = datasets()
     dataparms(16).OutFolder = '10MeAspBackMeAspDR/'; %Where to output data to   
     dataparms(16).concLevels = [10.5, 11, 12, 14, 18; 10.5, 11, 12, 14, 18];
     dataparms(16).Hillp0 = [log(2), log(13), 1]; %Log of estimated parameters to fit hill function
-    dataparms(16).Normp0 = [log(13), log(2), 1];
+    dataparms(16).Normp0 = [log(12), 1, 1];
     
     %% 10 uM MeAsp + 10uM L-Asp Background, MeAsp dose response
     dataparms(17).Removal = 0;
@@ -242,7 +247,7 @@ function dataparms = datasets()
     dataparms(21).Lplot = 10.^[-3:0.01:2]; %Range of plots    
     dataparms(21).Files = ["./Data/230330_FOV1.mat", "./Data/230403_FOV1.mat"]; %Where to load data from
     dataparms(21).OutFolder = '10LAsp_1meAspBackMeAspDR/'; %Where to output data to
-    dataparms(21).concLevels = [4, 10, 20, 40, 80; 4, 10, 20, 40, 80];
+    dataparms(21).concLevels = [5, 10, 20, 40, 80; 5, 10, 20, 40, 80];
     dataparms(21).Hillp0 = [log(1.07), log(30), 1]; %Log of estimated parameters to fit hill function
     dataparms(21).Normp0 = [log(15), log(2), 1];
 
@@ -276,9 +281,9 @@ function dataparms = datasets()
     dataparms(24).backConc = 1;
     dataparms(24).xlabels = '[MeAsp]';
     dataparms(24).Lplot = 10.^[-3:0.01:2]; %Range of plots    
-    dataparms(24).Files = ["./Data/230504_FOV1.mat", "./Data/230504_FOV2.mat","./Data/230505_FOV1.mat", "./Data/230505_FOV2.mat" ]; %Where to load data from
-%     dataparms(24).Files = ["./Data/230503_FOV1.mat"]; %Where to load data from
-    dataparms(24).OutFolder = '1LAsp_1MeAspBack_MeAspDR/'; %Where to output data to
+%     dataparms(24).Files = ["./Data/230504_FOV1.mat", "./Data/230504_FOV2.mat","./Data/230505_FOV1.mat", "./Data/230505_FOV2.mat" ]; %Where to load data from
+    dataparms(24).Files = ["./Data/230504_FOV1.mat", "./Data/230505_FOV1.mat"]; %Where to load data from
+    dataparms(24).OutFolder = '2LAsp_1MeAspBack_MeAspDR/'; %Where to output data to
     dataparms(24).concLevels = [2, 4, 8, 16, 32; 2, 4, 8, 16, 32; 2, 4, 8, 16, 32; 2, 4, 8, 16, 32];
     dataparms(24).Hillp0 = [log(2.1), log(1), 1]; %Log of estimated parameters to fit hill function
     dataparms(24).Normp0 = [log(1), log(2.1), 1];
@@ -289,10 +294,11 @@ function dataparms = datasets()
     dataparms(25).xlabels = '[MeAsp]';
     dataparms(25).Lplot = 10.^[-3:0.01:2]; %Range of plots    
     dataparms(25).Files = ["./Data/230509_FOV1.mat", "./Data/230510_FOV1.mat","./Data/230510_FOV2.mat"]; %Where to load data from
-    dataparms(25).OutFolder = '1LAsp_10MeAspBack_MeAspDR/'; %Where to output data to
+%     dataparms(25).Files = ["./Data/230509_FOV1.mat", "./Data/230510_FOV1.mat"]; %Where to load data from
+    dataparms(25).OutFolder = '2LAsp_10MeAspBack_MeAspDR/'; %Where to output data to
     dataparms(25).concLevels = [12,14, 18, 26, 42; 12,14, 18, 26, 42; 12,14, 18, 26, 42];
     dataparms(25).Hillp0 = [log(2.1), log(12), 1]; %Log of estimated parameters to fit hill function
-    dataparms(25).Normp0 = [log(1), log(12.1), 1];
+    dataparms(25).Normp0 = [log(15), 2, 1];
     
     %% 1uM L-Asp, L-Asp dose
     dataparms(26).Removal = 0;
@@ -325,8 +331,9 @@ function dataparms = datasets()
     dataparms(28).Files = ["./Data/230601_FOV1.mat", "./Data/230602_FOV1.mat"]; %Where to load data from
     dataparms(28).OutFolder = '0_1LAsp_LAspDR/'; %Where to output data to
     dataparms(28).concLevels = [0.12, 0.15, 0.2, 0.3, 0.5; 0.12, 0.15, 0.2, 0.3, 0.5;];
-    dataparms(28).Hillp0 = [log(2.1), log(0.6), 1]; %Log of estimated parameters to fit hill function
-    dataparms(28).Normp0 = [0.2, 0.2, 1];
+    dataparms(28).Hillp0 = [log(.9), log(0.2), 1]; %Log of estimated parameters to fit hill function
+    dataparms(28).Normp0 = [-.5, .8, 1];
+
 
     %% 0.05 uM L-Asp, L-Asp Dose
     dataparms(29).Removal = 0;
@@ -399,13 +406,12 @@ function dataparms = datasets()
 
     %% 100uM meAsp, LAsp Dose
     dataparms(35).Removal = 0;
-    dataparms(35).backConc = 0.01;
+    dataparms(35).backConc = 0.0;
     dataparms(35).xlabels = '[L-Asp]';
     dataparms(35).Lplot = 10.^[-3:0.01:2]; %Range of plots    
     dataparms(35).Files = ["./Data/230710_FOV1.mat"]; %Where to load data from
     dataparms(35).OutFolder = '100meAsp_LAspDR/'; %Where to output data to
     dataparms(35).concLevels = [.05, 0.1, 0.2, 0.4, 0.8];
-%     dataparms(35).concLevels = [0.02, 0.05, 0.1, 0.2, 0.4; 0.02, 0.05, 0.1, 0.2, 0.4];
     dataparms(35).Hillp0 = [log(.9), log(0.2), 1]; %Log of estimated parameters to fit hill function
     dataparms(35).Normp0 = [-.5, .8, 1];
 
@@ -429,20 +435,24 @@ function dataparms = datasets()
     dataparms(37).OutFolder = '10LAsp_100meAsp_LAspDR_V2/'; %Where to output data to
     dataparms(37).concLevels = [10.1, 10.2, 10.5, 11, 12; 10.1, 10.2, 10.5, 11, 12];
     dataparms(37).Hillp0 = [log(.9), log(0.2), 1]; %Log of estimated parameters to fit hill function
-    dataparms(37).Normp0 = [2, .8, 1];
+    dataparms(37).Normp0 = [log(10.1), 2, 1];
 
     %% 0.01uM MeAsp, meAsp Dose
     dataparms(38).Removal = 0;
     dataparms(38).backConc = .01;
+%     dataparms(38).backConc = .0;
     dataparms(38).xlabels = '[meAsp]';
     dataparms(38).Lplot = 10.^[-3:0.01:2]; %Range of plots    
-    dataparms(38).Files = ["./Data/230815_FOV1.mat", "./Data/230815_FOV2.mat",...
-        "./Data/230816_FOV1.mat", "./Data/230816_FOV2.mat"]; %Where to load data from
+%     dataparms(38).Files = ["./Data/230815_FOV1.mat", "./Data/230815_FOV2.mat",...
+%         "./Data/230816_FOV1.mat", "./Data/230816_FOV2.mat"]; %Where to load data from
+    dataparms(38).Files = ["./Data/230815_FOV1.mat", "./Data/230815_FOV2.mat"]; %Where to load data from
     dataparms(38).OutFolder = '0_01meAsp_meAspDR/'; %Where to output data to
-    dataparms(38).concLevels = [0.21, 0.51, 1.01, 2.01, 4.01; 0.21, 0.51, 1.01, 2.01, 4.01;...
-        0.21, 0.51, 1.01, 2.01, 4.01; 0.21, 0.51, 1.01, 2.01, 4.01];
+    dataparms(38).concLevels = [0.21, 0.51, 1.01, 2.01, 4.01; ...
+        0.21, 0.51, 1.01, 2.01, 4.01;...
+        0.21, 0.51, 1.01, 2.01, 4.01; ...
+        0.21, 0.51, 1.01, 2.01, 4.01];
     dataparms(38).Hillp0 = [log(.9), log(0.2), 1]; %Log of estimated parameters to fit hill function
-    dataparms(38).Normp0 = [-.1, .8, 1];
+    dataparms(38).Normp0 = [log(1.21), 2, 1];
 
     %% 10uM L-Asp + 100uM meAsp, meAsp dose
     dataparms(39).Removal = 0;
@@ -455,17 +465,29 @@ function dataparms = datasets()
     dataparms(39).Hillp0 = [log(2), log(10^2), 1]; %Log of estimated parameters to fit hill function
     dataparms(39).Normp0 = [log(110), log(2), 1];
 
-    %% 0.1uM L-Asp + 100uM meAsp, meAsp dose
+%     %% 10uM L-Asp + 100uM meAsp, meAsp dose as 0 background
+%     dataparms(39).Removal = 0;
+%     dataparms(39).backConc = 0;
+%     dataparms(39).xlabels = '[LAsp]';
+%     dataparms(39).Lplot = 10.^[0:0.01:2]; %Range of plots    
+%     dataparms(39).Files = ["./Data/230822_FOV1.mat", "./Data/230823_FOV1.mat", "./Data/230823_FOV2.mat"]; %Where to load data from
+%     dataparms(39).OutFolder = '10LAsp_100meAsp_MeAspDR/'; %Where to output data to
+%     dataparms(39).concLevels = [5, 10, 20, 40, 80; 5, 10, 20, 40, 80; 05, 10, 20, 40, 80];
+%     dataparms(39).Hillp0 = [log(2), log(10), 1]; %Log of estimated parameters to fit hill function
+%     dataparms(39).Normp0 = [log(10), log(2), 1];
+
+    %% 0.1uM L-Asp + 100uM meAsp, Lasp dose
     dataparms(40).Removal = 0;
     dataparms(40).backConc = 0.1;
     dataparms(40).xlabels = '[L-Asp]';
     dataparms(40).Lplot = 10.^[-3:0.01:2]; %Range of plots    
     dataparms(40).Files = ["./Data/231017_FOV1.mat", "./Data/231017_FOV2.mat", "./Data/231018_FOV1.mat", "./Data/231018_FOV2.mat"]; %Where to load data from
+%     dataparms(40).Files = ["./Data/231017_FOV1.mat", "./Data/231017_FOV2.mat", "./Data/231018_FOV1.mat"]; %Where to load data from
     dataparms(40).OutFolder = '100meAsp_0_1LAsp_LAspDR/'; %Where to output data to
     dataparms(40).concLevels = [0.2, 0.3, 0.6, 1.1, 2.1; 0.2, 0.3, 0.6, 1.1, 2.1; 0.2, 0.3, 0.6, 1.1, 2.1; 0.2, 0.3, 0.6, 1.1, 2.1];
 %     dataparms(35).concLevels = [0.02, 0.05, 0.1, 0.2, 0.4; 0.02, 0.05, 0.1, 0.2, 0.4];
     dataparms(40).Hillp0 = [log(.9), log(0.2), 1]; %Log of estimated parameters to fit hill function
-    dataparms(40).Normp0 = [-.5, .8, 1];
+    dataparms(40).Normp0 = [log(0.3), 2, 1];
 
     %% 10uM Serine background, L-Asp Dose Response
     dataparms(41).Removal = 0;
@@ -477,7 +499,7 @@ function dataparms = datasets()
     dataparms(41).OutFolder = '10serBackLAspDose/'; %Where to output data to
     dataparms(41).concLevels = [0.02, 0.05, 0.1, 0.2, 0.4; 0.02, 0.05, 0.1, 0.2, 0.4; 0.02, 0.05, 0.1, 0.2, 0.4; 0.02, 0.05, 0.1, 0.2, 0.4];
     dataparms(41).Hillp0 = [log(0.04), log(3), 1]; %Log of estimated parameters to fit hill function
-    dataparms(41).Normp0 = [log(0.04), 5, 1];
+    dataparms(41).Normp0 = [log(0.03), 1, 1];
  
     %% 0 background, Maltose Dose Response
     dataparms(42).Removal = 0;
@@ -508,10 +530,22 @@ function dataparms = datasets()
     dataparms(44).backConc = 0; %Background concentration for fitting hill function
     dataparms(44).xlabels = '[MeAsp]'; %xlabel on plots
     dataparms(44).Lplot = 10.^[-4:0.01:3]; %Range of plots
-    dataparms(44).Files = ["./Data/240129_FOV1.mat", "./Data/240129_FOV2.mat", "./Data/240130_FOV1.mat", "./Data/240130_FOV2.mat"]; %Where to load data from
+%     dataparms(44).Files = ["./Data/240129_FOV1.mat", "./Data/240129_FOV2.mat", "./Data/240130_FOV1.mat", "./Data/240130_FOV2.mat"]; %Where to load data from
+    dataparms(44).Files = ["./Data/240129_FOV1.mat", "./Data/240129_FOV2.mat", "./Data/240130_FOV1.mat"]; %Where to load data from
     dataparms(44).OutFolder = '1MaltosebackMeAspDose/'; %Where to output data to
     dataparms(44).concLevels = [0.2, 0.5, 1, 2, 4; 0.2, 0.5, 1, 2, 4; 0.2, 0.5, 1, 2, 4; 0.2, 0.5, 1, 2, 4];
     dataparms(44).Hillp0 = [log(2), log(1.1), 1]; %Log of estimated parameters to fit hill function [n, K]
-    dataparms(44).Normp0 = [log(1.2), 1, 1]; %[log(mean), sigma]
+    dataparms(44).Normp0 = [log(1.3), 2, 1]; %[log(mean), sigma]
+
+    %% 100uM MeAsp + 1uM Maltose Background, MeAsp Dose Response
+    dataparms(45).Removal = 0;
+    dataparms(45).backConc = 100; %Background concentration for fitting hill function
+    dataparms(45).xlabels = '[MeAsp]'; %xlabel on plots
+    dataparms(45).Lplot = 10.^[1:0.01:3]; %Range of plots
+    dataparms(45).Files = ["./Data/240229_FOV1.mat", "./Data/240229_FOV1.mat"];
+    dataparms(45).OutFolder = '100MeAsp_1uMMaltose_BackMeAspDR/'; %Where to output data to   
+    dataparms(45).concLevels = [102, 105, 110, 120, 140; 102, 105, 110, 120, 140; 102, 105, 110, 120, 140];
+    dataparms(45).Hillp0 = [log(2), log(105), 1]; %Log of estimated parameters to fit hill function
+    dataparms(45).Normp0 = [log(103), 2, 1];
 
 end
